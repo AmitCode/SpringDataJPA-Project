@@ -1,6 +1,8 @@
 package com.springDataJPA.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.Locale;
@@ -12,8 +14,8 @@ import java.util.Locale;
 
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String studentId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int studentId;
     @Column(name = "StudentFirstName",nullable = false,length = 300)
     private String studentFName;
     @Column(name = "StudentMiddleName",nullable = false,length = 300)
@@ -22,12 +24,34 @@ public class Student {
     private String studentLName;
     private String studentAge;
     private String studentAddress;
+    private String studentDOB;
+    @CreationTimestamp
+    private LocalDateTime creationData;
+    @UpdateTimestamp
+    private LocalDateTime lastUpdatedTime;
 
-    public String getStudentId() {
+    public LocalDateTime getCreationData() {
+        return creationData;
+    }
+
+    public void setCreationData(LocalDateTime creationData) {
+        this.creationData = creationData;
+    }
+
+    public LocalDateTime getLastUpdatedTime() {
+        return lastUpdatedTime;
+    }
+
+    public void setLastUpdatedTime(LocalDateTime lastUpdatedTime) {
+        this.lastUpdatedTime = lastUpdatedTime;
+    }
+
+
+    public int getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
 
@@ -79,23 +103,22 @@ public class Student {
         this.studentDOB = studentDOB;
     }
 
-    public LocalDateTime getInsertDate() {
-        return insertDate;
-    }
+//    public LocalDateTime getInsertDate() {
+//        return insertDate;
+//    }
+//
+//    public void setInsertDate(LocalDateTime insertDate) {
+//        this.insertDate = insertDate;
+//    }
+//
+//    public LocalDateTime getLastUpdatedDate() {
+//        return lastUpdatedDate;
+//    }
+//
+//    public void setLastUpdatedDate(LocalDateTime lastUpdatedDate) {
+//        this.lastUpdatedDate = lastUpdatedDate;
+//    }
 
-    public void setInsertDate(LocalDateTime insertDate) {
-        this.insertDate = insertDate;
-    }
-
-    public LocalDateTime getLastUpdatedDate() {
-        return lastUpdatedDate;
-    }
-
-    public void setLastUpdatedDate(LocalDateTime lastUpdatedDate) {
-        this.lastUpdatedDate = lastUpdatedDate;
-    }
-
-    private String studentDOB;
-    private LocalDateTime insertDate;
-    private LocalDateTime lastUpdatedDate;
+//    private LocalDateTime insertDate;
+//    private LocalDateTime lastUpdatedDate;
 }
