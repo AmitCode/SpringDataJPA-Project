@@ -17,9 +17,9 @@ class StudentRepoTest {
     @Test
     void saveStudentDetails(){
         Student student = new Student();
-        student.setStudentFName("Amit");
-        student.setStudentMName("Kumar");
-        student.setStudentLName("Pandey");
+        student.setStudentFName("Vishal");
+        student.setStudentMName("Vikram");
+        student.setStudentLName("Mishra");
         student.setStudentDOB("05-07-2001");
         student.setStudentAge("25");
         student.setStudentAddress("Sector 45, Gurugram, Haryana");
